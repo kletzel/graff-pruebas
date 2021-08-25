@@ -7,3 +7,8 @@
 	path = graff-pruebas
 	url = git@github.com:kletzel/graff-pruebas.git
 	branch = production
+
+[submodule "reporte_mrp"]
+	path = reporte_mrp
+	url = git@github.com:kletzel/graff-pruebas.git
+	branch = master
