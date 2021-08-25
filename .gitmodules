@@ -2,3 +2,8 @@
 	path = kletzel/graff-pruebas
 	url = git@github.com:kletzel/graff-pruebas.git
 	branch = production
+
+[submodule "graff-pruebas"]
+	path = graff-pruebas
+	url = git@github.com:kletzel/graff-pruebas.git
+	branch = production
