@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="grapp_rep_mrp.list">
+      <field name="name">grapp_rep_mrp list</field>
+      <field name="model">grapp_rep_mrp.grapp_rep_mrp</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="grapp_rep_mrp.action_window">
+      <field name="name">grapp_rep_mrp window</field>
+      <field name="res_model">grapp_rep_mrp.grapp_rep_mrp</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="grapp_rep_mrp.action_server">
+      <field name="name">grapp_rep_mrp server</field>
+      <field name="model_id" ref="model_grapp_rep_mrp_grapp_rep_mrp"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="grapp_rep_mrp" id="grapp_rep_mrp.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="grapp_rep_mrp.menu_1" parent="grapp_rep_mrp.menu_root"/>
+    <menuitem name="Menu 2" id="grapp_rep_mrp.menu_2" parent="grapp_rep_mrp.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="grapp_rep_mrp.menu_1_list" parent="grapp_rep_mrp.menu_1"
+              action="grapp_rep_mrp.action_window"/>
+    <menuitem name="Server to list" id="grapp_rep_mrp" parent="grapp_rep_mrp.menu_2"
+              action="grapp_rep_mrp.action_server"/>
+-->
+  </data>
+</odoo>

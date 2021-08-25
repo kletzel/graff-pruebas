@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_grapp_rep_mrp_grapp_rep_mrp,grapp_rep_mrp.grapp_rep_mrp,model_grapp_rep_mrp_grapp_rep_mrp,base.group_user,1,1,1,1

@@ -1,0 +1,906 @@
+<odoo>
+	<data>
+		<report id="graff_rep_mrp"
+			string="Reporte Orden de Produccion"
+			model="mrp.production"
+			report_type="qweb-pdf"
+			name="grapp_rep_mrp.reporte_mrp_template"
+			/>
+		<template id="reporte_mrp_template">
+			<t t-call="web.html_container">
+			<style>
+			table, th, td {
+				border: 1px solid black;
+			}
+			td{text-align: center;}	
+			table{	
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 100%;
+			}
+			table1{	
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 100;
+			}
+			#titulo{vertical-align: middle;}	
+		        .divTable{display: table;
+				width:100;
+				}
+			.divTableRow{display: table-row;
+				}
+			.divTableCell{display: table-cell;
+				border: 1px solid #999999:
+				padding: 3px 10px;
+				}
+			.divTableBody{display: table-row-group;
+				}
+		</style>
+
+		    <div class="page"> 		    
+			    <div>
+			   <table class="table table-sm o_main_table">
+			    <tr>
+			     <th> CLIENTE </th>
+			     <th> No. CLIENTE </th>
+			     <th> PEDIDO </th>
+			     <th> FECHA DE SOLICITUD </th>
+			     <th> FECHA DE ENTREGA </th>
+		            </tr>
+			     <t t-foreach="docs" t-as="o">
+			    <tr>
+			     <td> <span t-field="o.x_studio_cliente"/></td>	     
+			     <td> </td>	     
+			     <td> <span t-field="o.x_studio_many2one_field_MW1qT"/></td>	     
+			     <td> <span t-field="o.x_studio_fecha_de_solicitud"/></td>	     
+			     <td> <span t-field="o.x_studio_fecha_de_entrega"/></td>	     
+		            </tr>
+		            </t>
+	                   </table>
+			    <table class="table table-sm o_main_table">
+			    <tr>
+			     <th> PIEZAS </th>
+			     <th> D </th>
+			     <th> T </th>
+			     <th> H </th>
+			     <th> TIPO </th>
+			     <th> RESAQUE </th>
+			     <th> ESPECIFICACION </th>
+			     <th> O.P. </th>
+			     <th> O.P. ANT. </th>
+			     <th> DIBUJO </th>
+			     <th> CLAVE </th>
+		            </tr>
+			     <t t-foreach="docs" t-as="o">
+			    <tr>
+			     <td> <span t-field="o.product_qty"/></td>	     
+			     <td> <span t-field="o.x_studio_d_1"/></td>	     
+			     <td> <span t-field="o.x_studio_t_1"/></td>	     
+			     <td> <span t-field="o.x_studio_h_1"/></td>	     
+			     <td> <span t-field="o.x_studio_tipo"/></td>	     
+			     <td> <span t-field="o.x_studio_resaque"/></td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> <span t-field="o.x_studio_clave"/></td>	     
+		            </tr>
+	                    </t>
+	                   </table>
+	           <h2> </h2>
+			    <table class="table table-sm o_main_table">
+			    <tr>
+				    <div id="titulo">
+					    <th rowspan="10"><p> P</p><p>R</p><p>E</p><p>N</p><p>S</p><p>A</p><p>D</p><p>O</p> </th>
+				   </div>
+			     <th> PIEZAS </th>
+			     <th> D </th>
+			     <th> T </th>
+			     <th> H </th>
+			     <th> FORMA </th>
+			     <th> RESAQUE </th>
+			     <th> PESO BASE </th>
+			     <th> PESO CUERPO </th>
+			     <th> PESO TOTAL Kg. </th>
+			     <th> VOL. BASE cm3 </th>
+			     <th> VOL. CUERPO cm3 </th>
+			     <th> DENS. g/cm3 </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> <span t-field="o.product_qty"/></td>	     
+			     <td> <span t-field="o.x_studio_d_1"/></td>	     
+			     <td> <span t-field="o.x_studio_t_1"/></td>	     
+			     <td> <span t-field="o.x_studio_h_1"/></td>	     
+			     <td> <span t-field="o.x_studio_tipo"/></td>	     
+			     <td> <span t-field="o.x_studio_resaque"/></td>	     
+			     <td> <span t-field="o.x_studio_peso_base_en_kg"/></td>	     
+			     <td> <span t-field="o.x_studio_peso_cuerpo_en_kg"/></td>	     
+			     <td> <span t-field="o.x_studio_peso_total_en_kg"/></td>	     
+			     <td> <span t-field="o.x_studio_volumen_cm"/></td>	     
+			     <td> <span t-field="o.x_studio_volumen_cm"/></td>	     
+			     <td> <span t-field="o.x_studio_densidad"/></td>	     
+		     </tr>
+	             <tr>
+			     <th> TOLERANCIAS</th>	     
+			     <td> <span t-field="o.x_studio_tolerancias_dp"/></td>	     
+			     <td> <span t-field="o.x_studio_tolerancias_tp"/></td>	     
+			     <td> <span t-field="o.x_studio_tolerancias_hp"/></td>	     
+			     <td> </td>	     
+			     <td> </td>	     
+			     <td> </td>	     
+			     <td> </td>	     
+			     <td> no hay campo</td>	     
+			     <td> </td>	     
+			     <td> </td>	     
+			     <td> </td>	     
+		     </tr>
+	                    </t>
+	             <tr>
+			     <th> VASTAGO </th>
+			     <th colspan="2"> MALLAS  </th>
+			     <th colspan="2"> CASQUILLOS </th>
+			     <th> ETIQUETA </th>
+			     <th> ESTRELLA </th>
+			     <th> TUERCA </th>
+			     <th> BUJE </th>
+			     <th> EMBUTIDAS </th>
+			     <th colspan="2"> OBSERVACIONES DE PRENSADO </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+		     <tr>
+			     <t t-set="prefijo" t-value="' '"/>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Vastago')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas['product_id.default_code']"/>	     
+	                     </t>
+			     <td> <t t-esc="codigo"/></td>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Mallas')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas['product_id.default_code']"/>	     
+	                     </t>
+			     <td colspan="2"> <t t-esc="codigo"/></td>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Casquillos')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas['product_id.default_code']"/>	     
+	                     </t>
+			     <td colspan="2"> <t t-esc="codigo"/></td>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Etiqueta')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas.product_id.default_code"/>	     
+	                     </t>
+			     <td> <t t-esc="codigo"/></td>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Estrella')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas.product_id.default_code"/>	     
+	                     </t>
+			     <td> <t t-esc="codigo"/></td>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Tuerca')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas.product_id.default_code"/>	     
+	                     </t>
+			     <td> <t t-esc="codigo"/></td>	     
+			     <t t-foreach="o.bom_id.bom_line_ids.filtered(lambda x: x.x_studio_tipo=='Buje')" t-as="lineas">
+				<t t-set="codigo" t-value="lineas.product_id.default_code"/>	     
+	                     </t>
+			     <td> <t t-esc="codigo"/></td>	     
+			     <td> <span t-field="o.x_studio_embutidas"/></td>	     
+			     <td rowspan="5" colspan="2"> <span t-field="o.x_studio_related_field_cgxAB"/></td>	     
+		     </tr>
+	            </t>
+	             <tr>
+			     <th> ARILLOS </th>
+			     <th colspan="2"> CONCHAS </th>
+			     <th colspan="2"> GRAPA Y BAQUELITA </th>
+			     <th> DESMOLDANTE </th>
+			     <th> TAMIZ </th>
+			     <th> CALZAS </th>
+			     <th> PRENSA </th>
+			     <th> INST. DE MEDICION </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> no hay campo</td>	     
+			     <td colspan="2"> no hay campo</td>	     
+			     <td colspan="2"> no hay campo</td>	     
+			     <td> <span t-field="o.x_studio_desmoldante"/></td>	     
+			     <td> <span t-field="o.x_studio_tamiz"/></td>	     
+			     <td> <span t-field="o.x_studio_calzas"/></td>	     
+			     <td> <span t-field="o.x_studio_prensa"/></td>	     
+			     <td> <span t-field="o.x_studio_inst_de_medicin"/></td>	     
+		     </tr>
+	                     </t>
+	             <tr>
+			     <th>  </th>
+			     <th colspan="2">  DESBALANCE MAX.</th>
+			     <th colspan="2">  PRESION DE PRENSADO lbs.</th>
+			     <th>  PRESION DE REPRENSADO</th>
+			     <th>  REPOSO</th>
+			     <th>  LAMINA</th>
+			     <th>  INCLINACION</th>
+			     <th>  PESO DE LOS ACCESORIOS</th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> </td>	     
+			     <td colspan="2"> <span t-field="o.x_studio_desbalance_max"/></td>	     
+			     <td colspan="2"> <span t-field="o.x_studio_presin_prensado"/></td>	     
+			     <td> <span t-field="o.x_studio_presin_reprensado"/></td>	     
+			     <td> <span t-field="o.x_studio_reposo"/></td>	     
+			     <td> <span t-field="o.x_studio_lamina"/></td>	     
+			     <td> <span t-field="o.x_studio_incinacin"/></td>	     
+			     <td> <span t-field="o.x_studio_peso_accesorios"/></td>	     
+		     </tr>
+	            </t>
+	            </table>
+	           </div>
+	           <h2> </h2>
+		    <div class="row">
+		    <table class="table table-sm o_main_table">
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="6"> <p>H</p><p>O</p><p>R</p><p>N</p><p>O</p><p>S</p> </th>
+			   </div>
+			     <th colspan="3"> SECADO </th>
+			     <th> OBSERVACIONES DE HORNOS </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <th> HORNO </th>
+			     <th> CURVA </th>
+			     <th> TEMPERATURA </th>
+			     <td rowspan="5"> <span t-field="o.x_studio_observaciones_hornos"/></td>	     
+		     </tr>
+	             <tr>
+			     <td> <span t-field="o.x_studio_horno_s"/></td>	     
+			     <td> <span t-field="o.x_studio_curva_s"/></td>	     
+			     <td> <span t-field="o.x_studio_temperatura_s"/></td>	     
+		     </tr>
+	                     </t>
+	             <tr>
+			     <th colspan="3"> HORNEADO </th>
+		     </tr>
+	             <tr>
+			     <th> HORNO </th>
+			     <th> CURVA </th>
+			     <th> TEMPERATURA </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> <span t-field="o.x_studio_horno_h"/></td>	     
+			     <td> <span t-field="o.x_studio_curva_h"/></td>	     
+			     <td> <span t-field="o.x_studio_temperatura_h"/></td>	     
+		     </tr>
+	                     </t>
+		     </table>
+	            </div>
+	           <h2> </h2>
+		    <table class="table table-sm o_main_table">
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="6"> <p>REC</p><p>TI</p><p>FI</p><p>CA</p><p>DO</p> </th>
+			   </div>
+			     <th colspan="3"> DIAMETRO EXTERIOR </th>
+			     <th colspan="2"> ESPESOR </th>
+			     <th colspan="5"> DIAMETRO INTERIOR </th>
+		     </tr>
+	             <tr>
+			     <th> TOL.MIN.</th>
+			     <th> TOL.MAX. </th>
+			     <th> CARA ESPCECIAL NO.ESCANTILLON </th>
+			     <th> TOL.MIN.</th>
+			     <th> TOL.MAX. </th>
+			     <th> TOL.MIN.</th>
+			     <th> TOL.MAX. </th>
+			     <th> RESAQUE</th>
+			     <th> RELLENO</th>
+			     <th> PLOMO</th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> <span t-field="o.x_studio_diamexttolmin_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_diamexttolmax_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_cara_especial_numescantillon"/></td>	     
+			     <td> <span t-field="o.x_studio_espesor_tolmin_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_espesor_tolmax_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_diaminttolmin_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_diaminttolmax_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_diaminttolmax_en_mm"/></td>	     
+			     <td> <span t-field="o.x_studio_relleno_diamint"/></td>	     
+			     <td> <span t-field="o.x_studio_plomo_diamint"/></td>	     
+		     </tr>
+	                     </t>
+	             <tr>
+			     <th colspan="4"> BALANCE </th>
+			     <th colspan="6"> OBSERVACIONES DE RECTIFICADO </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <th> TOL.MAX.</th>
+			     <th> PLOMO</th>
+			     <th> SILICATO</th>
+			     <th> RESINA</th>
+			     <td rowspan="2" colspan="6"> <span t-field="o.x_studio_observaciones_rectificado"/></td>	     
+		     </tr>
+	             <tr>
+			     <td> .</td>	     
+			     <td> <span t-field="o.x_studio_plomo_balance"/></td>	     
+			     <td> <span t-field="o.x_studio_silicato_balance"/></td>	     
+			     <td> <span t-field="o.x_studio_resina_balance"/></td>	     
+		     </tr>
+	                     </t>
+		    </table>
+	           <h2> </h2>
+		    <table class="table table-sm o_main_table">
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="6"> <p>E</p><p>M</p><p>P</p><p>A</p><p>Q</p><p>U</p><p>E</p> </th>
+			   </div>
+			     <th>  CAJA DE CARTON</th>
+			     <th>  CAJA DE MADERA</th>
+			     <th>  PIEZAS POR BOLSA</th>
+			     <th>  PIEZAS POR CAJA</th>
+			     <th>  PROTECCION POR CAJA</th>
+			     <th>  PROTECCION ENTRE PIEZAS</th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> <span t-field="o.x_studio_pzas_por_bolsa_1"/></td>	     
+			     <td> <span t-field="o.x_studio_pzas_por_caja"/></td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+		     </tr>
+	                     </t>
+	             <tr>
+			     <th>  MARCA GRAF </th>
+			     <th>  CERTIFICADO DE CALIDAD</th>
+			     <th>  CODIGO DE CLIENTE</th>
+			     <th>  CINTA REFORZADA</th>
+			     <th>  PAPEL VELLUMOID</th>
+			     <th>  COLOR DE FRANJA</th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+		     </tr>
+	                     </t>
+	             <tr>
+			     <th>  ESTARCIDO</th>
+			     <th>  ETIQUETA CAPLE</th>
+			     <th>  ETIQUETA ADHERIBLE</th>
+			     <th>  SELLO</th>
+			     <th>  COLOR PLATO/CONCHA/BASE</th>
+			     <th>  RPM o m/seg</th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> <span t-field="o.x_studio_rpm_o_mseg"/></td>	     
+		     </tr>
+	                     </t>
+		    </table>
+	           <h2> </h2>
+		    <table class="table table-sm o_main_table">
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="2"> <p>C</p><p>A</p><p>L</p><p>I</p><p>D</p><p>A</p><p>D</p> </th>
+			   </div>
+			     <th>  VELOCIDAD RECOMENDADA</th>
+			     <th>  CERTIFICADO DE CALIDAD</th>
+			     <th>  OBSERVACIONES DE CALIDAD</th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> <span t-field="o.x_studio_velocidad_recomendada"/></td>	     
+			     <td> <span t-field="o.x_studio_certificado_de_calidad"/></td>	     
+			     <!--     <td> <span t-field="o.x_studio_observaciones_calidad"/></td> -->
+			     <td> .</td>	     
+		     </tr>
+	                     </t>
+		    </table>
+	           <h2> </h2>
+		    <table class="table table-sm o_main_table">
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="4"> <p>M</p><p>E</p><p>Z</p><p>C</p><p>L</p><p>A</p><p>D</p><p>O</p> </th>
+			   </div>
+			     <th> PIEZAS </th>
+			     <th> D </th>
+			     <th> T </th>
+			     <th> H </th>
+			     <th> TIPO </th>
+			     <th> RESAQUE </th>
+			     <th> ESPECIFICACION </th>
+			     <th> O. P. </th>
+			     <th> O.P. ANT. </th>
+			     <th> DIBUJO </th>
+			     <th> CLAVE </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> <span t-field="o.product_qty"/></td>	     
+			     <td> <span t-field="o.x_studio_d_1"/></td>	     
+			     <td> <span t-field="o.x_studio_t_1"/></td>	     
+			     <td> <span t-field="o.x_studio_h_1"/></td>	     
+			     <td> <span t-field="o.x_studio_tipo"/></td>	
+			     <td> <span t-field="o.x_studio_resaque"/></td>   
+			     <td> <span t-field="o.x_studio_especificacin"/></td>   
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> no hay campo</td>	     
+			     <td> <span t-field="o.x_studio_clave"/></td>   
+		     </tr>
+	                     </t>
+	             <tr>
+			     <th> PIEZAS </th>
+			     <th> D </th>
+			     <th> T </th>
+			     <th> H </th>
+			     <th> FORMA </th>
+			     <th> RESAQUE </th>
+			     <th> PESO BASE </th>
+			     <th> PESO CUERPO </th>
+			     <th> PESO TOTAL Kg. </th>
+			     <th> VOLUMEN cm3 </th>
+			     <th> DENS. g/cm3 </th>
+		     </tr>
+			     <t t-foreach="docs" t-as="o">
+	             <tr>
+			     <td> <span t-field="o.product_qty"/></td>	     
+			     <td> <span t-field="o.x_studio_dp"/></td>	     
+			     <td> <span t-field="o.x_studio_tp"/></td>	     
+			     <td> <span t-field="o.x_studio_hp"/></td>	     
+			     <td> no hay campo</td>	     
+			     <td> <span t-field="o.x_studio_resaque"/></td>   
+			     <td> <span t-field="o.x_studio_peso_base_en_kg"/></td>	     
+			     <td> <span t-field="o.x_studio_peso_cuerpo_en_kg"/></td>	     
+			     <td> <span t-field="o.x_studio_peso_total_en_kg"/></td>	     
+			     <td> <span t-field="o.x_studio_volumen_cm"/></td>	     
+			     <td> <span t-field="o.x_studio_densidad"/></td>	     
+		     </tr>
+	                     </t>
+		    </table>
+	           <h2> </h2>
+			    <table class="table table-sm o_main_table">
+			    <tr>
+			      <th> BASE O CUERPO </th>
+			      <th> MAT. PRIMA </th>
+			      <th> LOTE </th>
+			      <th> Kg. </th>
+		      </tr>
+		     <t t-foreach="docs" t-as="o">
+                      <t t-if="o.move_raw_ids">
+                       <tr t-foreach="o.move_raw_ids" t-as="raw_line">
+                                    <td>
+                                    </td>
+				    <td>
+					    <t t-foreach="raw_line.product_id" t-as="p">
+						    <span t-field="p.x_studio_calve_especial"/>
+					    </t>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <span t-field="raw_line.product_uom_qty"/>
+                                    </td>
+                        </tr>
+                       </t>
+                       </t>
+		            </table>
+			    <table class="table table-sm o_main_table">
+			    <tr>
+			      <th> OBSERVACIONES </th>
+			      <td> .</td>
+		            </tr>
+		            </table>
+	           <h2> </h2>
+		    <table class="table table-sm o_main_table">
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="10"> CUERPO </th>
+			   </div>
+			    <div id="titulo">
+				    <th colspan="17"> SEGUIMIENTO DE MEZCLADO </th>
+			   </div>
+		     </tr> 
+	             <tr>
+			     <th>  NO. </th>
+			     <th>  PESO KG. </th>
+			     <th>  FECHA </th>
+			     <th>  OPERADOR </th>
+			     <th>  MAQ. </th>
+			     <th>  OLLA </th>
+			     <th>  HUMEC. </th>
+			     <th>  % </th>
+			     <th>  CANT. KG. </th>
+			     <th>  % </th>
+			     <th>  CANT. KG. </th>
+			     <th>  % </th>
+			     <th>  CANT. KG. </th>
+			     <th>  OTRO </th>
+			     <th>  C TEMP. </th>
+			     <th>  % HUM. </th>
+			     <th>  HORA </th>
+		     </tr> 
+	             <tr>
+			     <td> 1 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 2 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 3 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 4 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 5 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 6 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 7 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 8 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			    <div id="titulo">
+				    <th rowspan="8"> BASE </th>
+			   </div>
+			     <td> 9 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 10 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 11 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 12 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 13 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 14 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 15 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+	             <tr>
+			     <td> 16 </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+			     <td>  </td>
+		     </tr> 
+		    </table>
+	           <h2> </h2>
+		    <table style="border:1px solid black">
+		    <tr style="valign:top;">
+		    <td>
+		      <table>
+		      <tr>
+		             <th>  </th>
+		             <th> METODO DE TRABAJO </th>
+			     <th> TAMIZ </th>
+		       </tr>
+		       <tr>
+		             <td>  CUERPO </td>
+		             <td>  </td>
+			     <td>  </td>
+		       </tr>
+		       <tr>
+		             <td>  BASE </td>
+		             <td>  </td>
+			     <td>  </td>
+		       </tr>
+		      </table>
+	            </td>
+		    </tr>
+	    </table>
+	           <h2> </h2>
+		    <table style="border:1px solid black">
+		    <tr style="valign:top;">
+		             <th> OBSERVACIONES </th>
+		    </tr>
+		    <t t-foreach="docs" t-as="o">
+		    <tr style="valign:top;">
+			     <td> <span t-field="o.x_studio_observaciones_mezclado"/></td>	     
+		     </tr>
+	            </t>
+		    </table>
+
+	           <h2> </h2>
+		    <table style="border:1px solid black">
+		    <tr style="valign:top;">
+		    <td>
+		      <table>
+		      <tr>
+		             <th> CODIGO DE CUERPO </th>
+		       </tr>
+		      <tr>
+		             <td> no hay campo </td>
+		       </tr>
+		      </table>
+	            </td>
+		    <td>
+		      <table>
+		      <tr>
+		             <th> CODIGO DE BASE </th>
+		       </tr>
+		      <tr>
+		             <td> no hay campo </td>
+		       </tr>
+		      </table>
+	            </td>
+		    </tr>
+		    </table>
+
+		    </div> 
+		   </t>		   
+                </template>
+	</data>
+</odoo>
+
+
