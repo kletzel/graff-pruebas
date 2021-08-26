@@ -12,3 +12,8 @@
 	path = reporte_mrp
 	url = git@github.com:kletzel/graff-pruebas.git
 	branch = master
+
+[submodule "grapp_rep_mrp"]
+	path = grapp_rep_mrp
+	url = git@github.com:kletzel/graff-pruebas.git
+	branch = master
