@@ -1,0 +1,33 @@
+<odoo>
+    <record model="ir.ui.view" id="graff_rep_resmov_wizard">
+        <field name="name">Resumen de Movimientos</field>
+        <field name="model">graff_rep_resmov.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Resumen de Movimientos">
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                    </group>
+                    <group>
+                        <field name="date_end"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_graff_rep_resmov_wizard"
+        name="Resumen de Movimientos"
+        res_model="graff_rep_resmov.wizard"
+        view_mode="form"
+        target="new"/>
+
+        <menuitem action="action_graff_rep_resmov_wizard"
+		id="menu_graff_rep_resmov_wizard"
+		 parent="mrp.menu_mrp_reporting" sequence="26"/>
+        </odoo>

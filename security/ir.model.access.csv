@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_graff_rep_resmov_wizard,graff_rep_resmov.wizard,model_graff_rep_resmov_wizard,,1,1,1,1
+access_graff_rep_resmov_reporte_resmov_template,graff_rep_resmov.reporte_resmov_template,model_report_graff_rep_resmov_reporte_resmov_template,,1,1,1,1

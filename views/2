@@ -1,0 +1,66 @@
+<odoo>
+	<data>
+		<report id="graff_rep_resmov"
+			string="Reporte Resumen de Mkvimientos Orden de Produccion"
+			model="graff_rep_resmov.wizard"
+			report_type="qweb-pdf"
+			name="graff_rep_resmov.reporte_resmov_template"
+			/>
+		<template id="reporte_resmov_template">
+		<t t-call="web.html_container">
+		<t t-call="web.external_layout">
+		      <style>
+			table {
+			      border: 1px solid black;
+			      border-collapse: collapse;
+			      border-spacing: 10;
+			      with: 100%;
+			}
+			      th, td{text-align: center;}
+		     </style>
+
+		    <div class="page"> 		    
+		      <div>
+		     <t t-set="id_producto_ant" t-value="a"/>
+		     <t t-foreach="docs" t-as="o"> 
+			 <t t-set="id_producto_act" t-value="o['resmov_producto_codigo']"/> 
+			 <t t-if="id_producto_act != id_poducto_ant">
+		         <t t-set="cantidad_total_producto" t-value="0"/>
+			 <table>
+			    <tr>
+			    <th scope="col"><div class="col" align="center"> PRODUCTO </div></th>
+			     <!-- <td> <span t-esc="o['resmov_producto_codigo']"/></td>-->   	     
+			     <td><div class="col"> <span t-esc="id_producto"/></div></td>   	     
+			     <th scope="col"><div class="col" align="center"> DESCRIPCION </div></th>
+			     <td><div class="col"> <span t-esc="o['resmov_producto_nombre']"/></div></td>	    
+		            </tr>
+	                 </table>
+		   </t>
+		   <h2> </h2>
+			   <table>
+			    <t t-if="id_producto_act != id_product_ant">  
+			    <tr>
+			     <th scope="col"><div class="col" align="center"> FECHA</div> </th>
+			     <th scope="col"><div class="col" align="center"> DOCTO.</div> </th>
+			     <th scope="col"><div class="col" align="center"> CANTIDAD</div> </th>
+		            </tr>
+			    </t>
+			    <tr>
+			    <td><div class="col"> <span t-esc="o['resmov_fecha_mrp']"/></div></td>     	     
+			    <td><div class="col"> <span t-esc="o['resmov_docto_mrp']"/></div></td>   	     
+			    <td><div class="col"> <span t-esc="o['resmov_producto_cant']"/></div></td>    	     
+		            </tr>
+	                   </table>
+		   <h2> </h2>
+			 <t t-set="cantidad_total_producto" t-value="cantidad_total_producto+o['resmov_producto_cant']"/> 
+		         <t t-set="id_producto_ant" t-value="id_producto_act"/>
+		         </t>
+		      </div> 
+		    </div> 
+		   </t>
+		   </t>
+                </template>
+	</data>
+</odoo>
+
+
