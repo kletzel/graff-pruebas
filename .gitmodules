@@ -17,3 +17,8 @@
 	path = grapp_rep_mrp
 	url = git@github.com:kletzel/graff-pruebas.git
 	branch = master
+
+[submodule "graff_rep_resmov"]
+	path = graff_rep_resmov
+	url = git@github.com:kletzel/graff-pruebas.git
+	branch = graff_rep_resmov
